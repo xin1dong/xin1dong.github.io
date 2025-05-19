@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1024">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="blog.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
+
+  <title>Xin Dong - Blog</title>
+  <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="main">
+  <div class="container"></div>
+
+  <div class="name">
+    <h1>Xin Dong</h1>
+    <p><a href="../index.html">Home</a> / Blog</p>
+  </div>
+
+  <div class="header">
+    <h2>Blog Posts</h2>
+  </div>
+
+  <div class="blog-list">
+    <div id="blog-posts">
+      <!-- Blog posts will be loaded here by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    // Function to load blog posts from the blog_list.json file
+    async function loadBlogPosts() {
+      try {
+        const response = await fetch('blog_list.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog posts');
+        }
+        const blogPosts = await response.json();
+        
+        const blogPostsContainer = document.getElementById('blog-posts');
+        
+        // Sort blog posts by date (newest first)
+        blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Render blog posts
+        blogPosts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.className = 'blog-post-preview';
+          
+          const date = new Date(post.date);
+          const formattedDate = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+          
+          postElement.innerHTML = `
+            <h3><a href="${post.url}">${post.title}</a></h3>
+            <p class="post-date">${formattedDate}</p>
+            <p class="post-summary">${post.summary}</p>
+            <p><a href="${post.url}">Read more →</a></p>
+            <hr>
+          `;
+          
+          blogPostsContainer.appendChild(postElement);
+        });
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+        document.getElementById('blog-posts').innerHTML = '<p>No blog posts found.</p>';
+      }
+    }
+    
+    // Load blog posts when the page loads
+    window.addEventListener('DOMContentLoaded', loadBlogPosts);
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Xin Dong. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html> 
