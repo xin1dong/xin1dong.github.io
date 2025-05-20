@@ -4,6 +4,10 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  /* Removing these to create a uniform look */
+  /*background-color: #ffffff;*/
+  /*border-radius: 8px;*/
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
 }
 
 .blog-post-preview {
@@ -29,6 +33,10 @@
   margin: 0 auto;
   padding: 20px;
   line-height: 1.6;
+  /* Removing these to create a uniform look */
+  /*background-color: #ffffff;*/
+  /*border-radius: 8px;*/
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
 }
 
 .blog-content img {
