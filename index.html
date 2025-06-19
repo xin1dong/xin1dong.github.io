@@ -21,6 +21,9 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+  <!-- Twitter embed script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <title>Xin Dong</title>
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -56,15 +59,13 @@
           <p style="font-size: x-small">Cambridge, MA, May 2020</p>
         </td>
         <td align="left">
-          <p>I am a research scientist at <a target="_blank" href="https://www.nvidia.com/en-us/research/">NVIDIA Research</a>.
-            I received Ph.D. in Computer Science from <a target="_blank" href="https://www.seas.harvard.edu/">Harvard University</a> in 2023, 
-            advised by <a target="_blank" href="https://www.eecs.harvard.edu/htk/">H.T. Kung</a>. 
-            I have general research interests in deep learning, with a focus on designing accurate, 
-            efficient and trustworthy systems for autonomous machines, LLM and GenAI.</p>
+          <p>I am a research scientist at <a target="_blank" href="https://research.nvidia.com/labs/lpr/">NVIDIA Research</a>, where I focus on developing
+            intelligent, efficient, and trustworthy foundation models.
+            </p>
 
-          <p>Prior to Harvard, I was a research assistant at Nanyang Technological University and UC San Diego. 
-            I am a recipient of the Harvard James Mills Peirce Fellowship.
-          </p>
+          <p>I earned my Ph.D. in Computer Science from <a target="_blank" href="https://www.seas.harvard.edu/">Harvard University</a> in 2023, 
+            where I was advised by <a target="_blank" href="https://www.eecs.harvard.edu/htk/">H.T. Kung</a> and honored as a recipient of the Harvard James Mills Peirce Fellowship.
+            I also gained valuable research experience at univerisities like Nanyang Technological University, UC San Diego and companies like Meta/Facebook, Tencent.</p>
 
           <p>
             <a href="https://scholar.google.com/citations?user=O8nBN64AAAAJ&hl=en"><img
@@ -92,7 +93,7 @@
       <li><span>Jun 2025</span> &raquo; We have released <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">Nemotron-Research-Reasoning-Qwen-1.5B (Top10 trend)</a>, trained using “Prolonged RL,” where we significantly scaled up RL training steps (+2k) and problems (+130k). The RL-trained model makes substantial progress on problems that the base model cannot solve. Our 1.5B model has achieved impressive results, on par with DeepSeek-R1-Distill-Qwen-7B.
       </li>
       <li><span>Apr 2025</span> &raquo; We have released CLIMB, a robust LLM pre- and post-training dataset building method.<br>
-          We have now completed the puzzle of <span style="color:#3498db; font-size:1.05em">data preparation</span>, <span style="color:#e74c3c; font-size:1.05em">model architecture</span>, <span style="color:#2ecc71; font-size:1.05em">training recipes</span>, and <span style="color:#9b59b6; font-size:1.05em">alignment</span> to achieve state-of-the-art SLM.
+          We have now completed the puzzle of <span style="color:#d3db34; font-size:1.05em">data preparation</span>, <span style="color:#e74c3c; font-size:1.05em">model architecture</span>, <span style="color:#2ecc71; font-size:1.05em">training recipes</span>, and <span style="color:#9b59b6; font-size:1.05em">alignment</span> to achieve state-of-the-art SLM.
           A small but strong reasoner is on the way.
       </li>
       <li><span>Jan 2025</span> &raquo; Gave a talk at <a href="https://www.csail.mit.edu/event/scale-ml-mlsys-reading-group-hymba-hybrid-head-architecture-small-language-models">Scale ML + MLSys @ MIT</a> on our Hymba work. Thanks for the invite.</li> 
@@ -109,53 +110,6 @@
       <li><span>Mar 2022</span> &raquo; Two first-author papers are accepted by CVPR 2022. Thanks collaborators from Meta, Deepmind, Harvard and UTD.</li> -->
     </ul>
   </div>
-
-
-    <!-- experiments -->
-    <!-- <div class="news">
-      <h2>Selected Research Topics</h2>
-  
-      <div class="row my-3">
-        <div class="col-lg-12">
-          <div class="paper-text">
-            <div class="paper-title">
-              Distributed Training and Inference for DL (e.g., Federated Learning, Split Computing)
-            </div>
-            <div class="paper-conference">
-              <a href="https://arxiv.org/abs/2207.09413">[ECCV'22]</a> <a href="https://arxiv.org/abs/2204.04705">[CVPR'22]</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row my-3">
-        <div class="col-lg-12">
-          <div class="paper-text">
-            <div class="paper-title">
-              Trustworthy and Private DL (e.g., Out-of-Distribution/Adversarial Samples, Data Privacy)
-            </div>
-            <div class="paper-conference">
-              <a href="https://arxiv.org/pdf/2104.11408.pdf">[CVPR'22]</a> <a href="https://arxiv.org/abs/2107.06304">[BMVC'22]</a>
-            </div>
-          </div>
-        </div>
-      </div>      
-
-      <div class="row my-3">
-        <div class="col-lg-12">
-          <div class="paper-text">
-            <div class="paper-title">
-              Data and Computation Efficient Training and Inference (e.g., Pruning, Quantization) for DL Applications (e.g., CV, NLP)
-            </div>
-            <div class="paper-conference">
-              <a href="https://arxiv.org/pdf/2104.11408.pdf">[CVPR'22]</a> <a href="https://dl.acm.org/doi/abs/10.1145/3445814.3446741">[ASPLOS'21]</a> <a href="http://proceedings.mlr.press/v139/li21d/li21d.pdf">[ICML'21]</a> <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Li_MixMix_All_You_Need_for_Data-Free_Compression_Are_Feature_and_ICCV_2021_paper.pdf">[CVPR'21]</a> <a href="https://arxiv.org/pdf/1909.13144.pdf">[ICLR'20] (highly cited)</a> <a href="https://arxiv.org/pdf/1912.02057.pdf">[AAAI'20]</a> <a href="https://aclanthology.org/2020.findings-emnlp.129.pdf">[EMNLP'20]</a> <a href="https://arxiv.org/pdf/2003.07577.pdf">[ICLR'20]</a> <a href="https://arxiv.org/pdf/1812.04210.pdf">[CVPR'19]</a> <a href="https://arxiv.org/abs/1806.07550">[CVPR'19] (highly cited)</a> <a href="https://arxiv.org/pdf/1905.00462.pdf">[ICS'19]</a> <a href="http://www.eecs.harvard.edu/~htk/publication/2019-asap-kung-mcdanel-zhang-dong-chen.pdf">[ASAP'19]</a> <a href="https://papers.nips.cc/paper/2017/file/c5dc3e08849bec07e33ca353de62ea04-Paper.pdf">[NeurIPS'17] (highly cited)</a> 
-            </div> 
-          </div>
-        </div>
-      </div>
-
-    </div> -->
-
 
 
 
@@ -253,8 +207,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 
 
@@ -262,7 +214,28 @@
 
 
   <div class="papers">
-    <h2>Publications</h2>
+    <h2>Projects</h2>    
+
+    <div class="twitter-section-wrapper">
+      <div class="twitter-header" onclick="toggleTwitterSection()">
+        <span class="triangle-icon" id="twitter-triangle">▶</span>
+        <span class="twitter-title">Social Media Highlights</span>
+      </div>
+      
+      <div class="twitter-section" id="twitter-content" style="display: none;">
+        <div class="row my-3">
+          <div class="col-lg-4">
+            <div class="twitter-embed-container" data-tweet-url="https://x.com/NVIDIAAIDev/status/1860042391673274386" data-height="300"></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="twitter-embed-container" data-tweet-url="https://x.com/reach_vb/status/1861492854293459423" data-height="300"></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="twitter-embed-container" data-tweet-url="https://x.com/natolambert/status/1929522764353794523" data-height="300"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="row my-3">
       <div class="col-lg-3">
@@ -1116,5 +1089,100 @@
 
 
 </div>
+
+<script>
+// Twitter Auto-Embed Script
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Function to embed tweets automatically
+    function embedTweets() {
+        const containers = document.querySelectorAll('.twitter-embed-container');
+        
+        containers.forEach(container => {
+            const tweetUrl = container.getAttribute('data-tweet-url');
+            const height = container.getAttribute('data-height');
+            
+            if (tweetUrl && !container.hasChildNodes()) {
+                // Set container height if specified
+                if (height) {
+                    container.style.height = height + 'px';
+                }
+                
+                // Extract tweet ID from URL - handle both twitter.com and x.com
+                const tweetId = tweetUrl.match(/(?:twitter\.com|x\.com)\/\w+\/status\/(\d+)/)?.[1];
+                if (tweetId) {
+                    // Create blockquote element for Twitter embed
+                    const blockquote = document.createElement('blockquote');
+                    blockquote.className = 'twitter-tweet';
+                    blockquote.setAttribute('data-theme', 'light');
+                    blockquote.setAttribute('data-width', '100%');
+                    blockquote.setAttribute('data-dnt', 'true');
+                    blockquote.setAttribute('data-conversation', 'none'); // Hide replies
+                    
+                    const link = document.createElement('a');
+                    // Convert x.com URLs to twitter.com for compatibility
+                    const twitterUrl = tweetUrl.replace('x.com', 'twitter.com');
+                    link.href = twitterUrl;
+                    link.textContent = 'View tweet';
+                    
+                    blockquote.appendChild(link);
+                    container.appendChild(blockquote);
+                }
+            }
+        });
+        
+        // Load Twitter widgets with retry mechanism
+        function loadTwitterWidgets() {
+            if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load();
+            } else {
+                // Retry after a short delay
+                setTimeout(loadTwitterWidgets, 500);
+            }
+        }
+        
+        loadTwitterWidgets();
+    }
+    
+    // Wait for Twitter script to load
+    function waitForTwitter() {
+        if (window.twttr) {
+            embedTweets();
+        } else {
+            setTimeout(waitForTwitter, 100);
+        }
+    }
+    
+    // Start the process
+    waitForTwitter();
+    
+    // Also run on window load as backup
+    window.addEventListener('load', function() {
+        setTimeout(embedTweets, 2000);
+    });
+});
+
+// Twitter Section Toggle Function
+function toggleTwitterSection() {
+    const content = document.getElementById('twitter-content');
+    const triangle = document.getElementById('twitter-triangle');
+    
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        triangle.classList.add('expanded');
+        
+        // Load tweets when section is expanded
+        setTimeout(() => {
+            if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load();
+            }
+        }, 100);
+    } else {
+        content.style.display = 'none';
+        triangle.classList.remove('expanded');
+    }
+}
+</script>
+
 </body>
 </html>

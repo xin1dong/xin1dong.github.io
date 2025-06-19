@@ -148,3 +148,123 @@ img.me {
 .borderless td, .borderless th {
     border: none;
 }
+
+/* Twitter Collapsible Section Styles */
+.twitter-section-wrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.twitter-header {
+    background: rgba(253, 242, 248, 0.6);
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    user-select: none;
+    width: 100%;
+}
+
+.twitter-header:hover {
+    background: rgba(253, 242, 248, 0.8);
+    box-shadow: 0 1px 4px rgba(248, 131, 121, 0.15);
+}
+
+.triangle-icon {
+    font-size: 10px;
+    color: #f88379;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    transform-origin: center;
+    width: 12px;
+    text-align: center;
+}
+
+.triangle-icon.expanded {
+    transform: rotate(90deg);
+}
+
+.twitter-title {
+    font-size: 1em;
+    font-weight: normal;
+    color: #f88379;
+    margin: 0;
+}
+
+.twitter-section {
+    margin-top: 20px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.twitter-embed-container {
+    margin-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.twitter-embed-container[data-height] {
+    height: attr(data-height px);
+}
+
+/* Default heights based on data-height attribute */
+.twitter-embed-container[data-height="200"] { height: 200px; }
+.twitter-embed-container[data-height="300"] { height: 300px; }
+.twitter-embed-container[data-height="400"] { height: 400px; }
+.twitter-embed-container[data-height="500"] { height: 500px; }
+.twitter-embed-container[data-height="600"] { height: 600px; }
+
+.twitter-embed-container .twitter-tweet {
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Custom scrollbar styling */
+.twitter-embed-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.twitter-embed-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.twitter-embed-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.twitter-embed-container::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+@media (max-width: 768px) {
+    .twitter-embed-container {
+        margin-bottom: 15px;
+    }
+    
+    /* Smaller heights on mobile */
+    .twitter-embed-container[data-height="400"] { height: 300px; }
+    .twitter-embed-container[data-height="500"] { height: 350px; }
+    .twitter-embed-container[data-height="600"] { height: 400px; }
+}
