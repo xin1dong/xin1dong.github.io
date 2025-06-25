@@ -59,8 +59,7 @@
           <p style="font-size: x-small">Cambridge, MA, May 2020</p>
         </td>
         <td align="left">
-          <p>I am a research scientist at <a target="_blank" href="https://research.nvidia.com/labs/lpr/">NVIDIA Research</a>, where I focus on developing
-            intelligent and efficient foundation models.
+          <p>I am a research scientist at <a target="_blank" href="https://research.nvidia.com">NVIDIA Research</a>, where I lead training of intelligent and efficient foundation models.
             </p>
 
           <p>I earned my Ph.D. in Computer Science from <a target="_blank" href="https://www.seas.harvard.edu/">Harvard University</a> in 2023, 
@@ -90,7 +89,7 @@
   <div class="news">
     <h2>News</h2>
     <ul>
-      <li><span>Jun 2025</span> &raquo; We have released <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">Nemotron-Reasoning-1.5B (Top10 trend)</a>, trained using “Prolonged RL,” where we significantly scaled up RL training steps (+2k) and problems (+130k). The RL-trained model makes substantial progress on problems that the base model cannot solve. Our 1.5B model has achieved impressive results, on par with DeepSeek-R1-Distill-Qwen-7B.
+      <li><span>Jun 2025</span> &raquo; We have released <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">Nemotron-Reasoning-1.5B (Top10 trend)</a>, trained using "Prolonged RL," where we significantly scaled up RL training steps (+2k) and problems (+130k). The RL-trained model makes substantial progress on problems that the base model cannot solve. Our 1.5B model has achieved impressive results, on par with DeepSeek-R1-Distill-Qwen-7B.
       </li>
       <li><span>Apr 2025</span> &raquo; We have released CLIMB, a robust LLM pre- and post-training dataset building method.<br>
           We have now completed the puzzle of <span style="color:#d3db34; font-size:1.05em">data preparation</span>, <span style="color:#e74c3c; font-size:1.05em">model architecture</span>, <span style="color:#2ecc71; font-size:1.05em">training recipes</span>, and <span style="color:#9b59b6; font-size:1.05em">alignment</span> to achieve state-of-the-art SLM.
@@ -237,7 +236,7 @@
       </div>
     </div>
 
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/hymba_mem.png" alt="gpt-pruning">
@@ -257,10 +256,16 @@
             <a target="_blank" href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">[HF🔥]</a>
           </div>
         </div>
+        <div class="paper-additional-text">
+          <ul>
+            <li>Hymba-1.5-1.5B (release soon) achieves better performance than LLaMA 3.2-3B and Qwen-2.5-1.5B with 10x less kv cache memory usage. </li>
+            <li><a target="_blank" href="https://falcon-lm.github.io/blog/falcon-h1/">Falcon-H1</a> from UAE adopted a similar parallel architecture as Hymba.</li>
+          </ul>
+        </div>
       </div>
     </div> 
     
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/prorl.jpeg" alt="gpt-pruning">
@@ -280,11 +285,14 @@
             <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">[HF🔥]</a>
           </div>
         </div>
+        <div class="paper-additional-text">
+        
+        </div>
       </div>
     </div> 
 
 
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/climb.png" alt="gpt-pruning">
@@ -303,6 +311,8 @@
             <a target="_blank" href="https://arxiv.org/abs/2504.13161">[PDF]</a>
             <a target="_blank" href="https://huggingface.co/collections/nvidia/climb-datasets-67e428bdb9aaced2acda191f">[HF🔥]</a>
           </div>
+        </div>
+        <div class="paper-additional-text">
         </div>
       </div>
     </div>      
@@ -405,7 +415,7 @@
     </div>    
 
     <!--gpt pruning-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/gpt-pruning.png" alt="gpt-pruning">
@@ -426,6 +436,17 @@
           <div>
             <a target="_blank" href="https://arxiv.org/pdf/2310.04680.pdf">[PDF]</a>
           </div>
+        </div>
+        <div class="paper-additional-text">
+          <h4>Research Question</h4>
+          <p>What happens to different capabilities when language models are down-scaled? This study investigates how model compression affects fact recall vs. in-context learning abilities.</p>
+          <h4>Key Findings</h4>
+          <ul>
+            <li>Fact recall capability deteriorates significantly before in-context learning</li>
+            <li>Different cognitive abilities have varying sensitivity to model scaling</li>
+            <li>Provides insights for efficient model compression strategies</li>
+          </ul>
+          <p><strong>Significance:</strong> Helps understand the trade-offs in model compression for practical deployment.</p>
         </div>
       </div>
     </div>
@@ -1182,6 +1203,32 @@ function toggleTwitterSection() {
         triangle.classList.remove('expanded');
     }
 }
+</script>
+
+<script>
+  // Paper hover effect using vanilla JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    const paperItems = document.querySelectorAll('.paper-item');
+    
+    paperItems.forEach(function(item) {
+      const additionalText = item.querySelector('.paper-additional-text');
+      
+      if (additionalText) {
+        // Ensure it's hidden initially
+        additionalText.style.display = 'none';
+        
+        item.addEventListener('mouseenter', function() {
+          item.classList.add('hovered');
+          additionalText.style.display = 'block';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          item.classList.remove('hovered');
+          additionalText.style.display = 'none';
+        });
+      }
+    });
+  });
 </script>
 
 </body>
