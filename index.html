@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css?v=20250117-3">
 
+  <style>
+    .news ul li {
+      margin-bottom: 8px;
+    }
+  </style>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
           integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
           crossorigin="anonymous"></script>
@@ -89,20 +95,17 @@
   <div class="news">
     <h2>News</h2>
     <ul>
-      <li><span>Jun 2025</span> &raquo; We have released <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">Nemotron-Reasoning-1.5B (Top10 trend)</a>, trained using "Prolonged RL," where we significantly scaled up RL training steps (+2k) and problems (+130k). The RL-trained model makes substantial progress on problems that the base model cannot solve. Our 1.5B model has achieved impressive results, on par with DeepSeek-R1-Distill-Qwen-7B.
+      <li><span>Jun 2025</span> &raquo; We released <a target="_blank" href="https://huggingface.co/nvidia/Nemotron-Research-Reasoning-Qwen-1.5B">Nemotron-Reasoning-1.5B (Top10 trend)</a>, trained using "Prolonged RL," where we, for the first time, scaled up RL steps (+2k) and problems (+130k). It is the best 1.5B model with accuracy on par with DeepSeek-R1-Distill-Qwen-7B.
       </li>
-      <li><span>Apr 2025</span> &raquo; We have released CLIMB, a robust LLM pre- and post-training dataset building method.<br>
-          We have now completed the puzzle of <span style="color:#d3db34; font-size:1.05em">data preparation</span>, <span style="color:#e74c3c; font-size:1.05em">model architecture</span>, <span style="color:#2ecc71; font-size:1.05em">training recipes</span>, and <span style="color:#9b59b6; font-size:1.05em">alignment</span> to achieve state-of-the-art SLM.
-          A small but strong reasoner is on the way.
+      <li><span>Apr 2025</span> &raquo; We released CLIMB, a robust LLM pre- and post-training dataset building method. We have now completed the puzzle of <strong>data preparation</strong>, <strong>model architecture</strong>, <strong>training recipes</strong>, and <strong>alignment</strong> to achieve state-of-the-art SLM.
       </li>
-      <li><span>Jan 2025</span> &raquo; Gave a talk at <a href="https://www.csail.mit.edu/event/scale-ml-mlsys-reading-group-hymba-hybrid-head-architecture-small-language-models">Scale ML + MLSys @ MIT</a> on our Hymba work. Thanks for the invite.</li> 
-      <li><span>Dec 2024</span> &raquo; 🏆 Join our <a href="https://sites.google.com/view/datafilteringchallenge/home?authuser=0">Data Filtering Challenge</a> for Edge LLMs and help shape the future of language models. Solve real-world problems, showcase your skills, and win amazing prizes! </li> 
-      <li><span>Nov 2024</span> &raquo; We released the first hybrid-head model, <a href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">Hymba-1.5B</a> (accepted by ICLR 2025 as spotlight), which outperforms LLaMA 3.2-3B, despite being trained on 7× fewer tokens and achieving 12× cache reduction. Try them from Huggingface for your on-device LLM applications.&#128293;</li> 
+      <li><span>Jan 2025</span> &raquo; Gave a talk at <a href="https://www.csail.mit.edu/event/scale-ml-mlsys-reading-group-hymba-hybrid-head-architecture-small-language-models">Scale ML + MLSys @ MIT</a> on our Hymba work.</li> 
+      <!-- <li><span>Dec 2024</span> &raquo; 🏆 Join our <a href="https://sites.google.com/view/datafilteringchallenge/home?authuser=0">Data Filtering Challenge</a> for Edge LLMs and help shape the future of language models. Solve real-world problems, showcase your skills, and win amazing prizes! </li>  -->
+      <li><span>Nov 2024</span> &raquo; We released the first hybrid-head model, <a href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">Hymba-1.5B</a> (accepted by ICLR 2025 as spotlight), which outperforms LLaMA 3.2-3B, despite being trained on 7× fewer tokens and achieving 12× cache reduction.</li> 
       <!-- <li><span>Jan 2024</span> &raquo; Serve as Editor, Area Chair and Reviewer for ICLR, NeurIPS, ACM MM, and Electronics. </li>  -->
-      <li><span>Oct 2022</span> &raquo; Our <a href="https://openreview.net/pdf?id=BkgXT24tDS">Additive Power-of-Two Quantization (ICLR'20)</a> is now supported by <a href="https://github.com/pytorch/pytorch/blob/dd516d7098122b3cb8a49ee7d23fdd8d214da213/torch/ao/quantization/experimental/quantizer.py#L8">offical PyTorch APIs</a>. It is a non-uniform quantization that fits well to weights distribution 
-        and offers great hardware efficiency. Try it out!</li> 
+      <li><span>Oct 2022</span> &raquo; Our <a href="https://openreview.net/pdf?id=BkgXT24tDS">Additive Power-of-Two Quantization (ICLR'20)</a> is now supported by <a href="https://github.com/pytorch/pytorch/blob/dd516d7098122b3cb8a49ee7d23fdd8d214da213/torch/ao/quantization/experimental/quantizer.py#L8">offical PyTorch APIs</a>. </li> 
       <li><span>Oct 2022</span> &raquo; Our <a href="https://arxiv.org/pdf/2107.06304.pdf">Direct Model Inversion</a> is accepted by BMVC 2022 and featured by <a href="https://www.technologyreview.com/2021/10/12/1036844/ai-gan-fake-faces-data-privacy-security-leak/">MIT Technology Review</a>, 
-        <a href="https://singularityhub.com/2021/10/25/not-so-mysterious-after-all-researchers-show-how-to-crack-ais-black-box/">SingularityHub</a>. Thank collaborators from NVIDIA and Harvard.</li> 
+        <a href="https://singularityhub.com/2021/10/25/not-so-mysterious-after-all-researchers-show-how-to-crack-ais-black-box/">SingularityHub</a>.</li> 
       <!-- <li><span>Jul 2022</span> &raquo; Our paper on federated learning is accepted by ECCV 2022. Thank collaborators from Harvard and Deepmind.</li>
       <li><span>Mar 2022</span> &raquo; The Co-organized workshop on 
       The Practical Deep Learning in the Wild (<a target="_blank" href="https://practical-dl.github.io/">PracticalDL-22</a>) at AAAI 2022 is online now!</li>
@@ -217,11 +220,11 @@
 
     <div class="twitter-section-wrapper">
       <div class="twitter-header" onclick="toggleTwitterSection()">
-        <span class="triangle-icon" id="twitter-triangle">▶</span>
+        <span class="triangle-icon expanded" id="twitter-triangle">▶</span>
         <span class="twitter-title">Social Media Highlights</span>
       </div>
       
-      <div class="twitter-section" id="twitter-content" style="display: none;">
+      <div class="twitter-section" id="twitter-content" style="display: block;">
         <div class="row my-3">
           <div class="col-lg-4">
             <div class="twitter-embed-container" data-tweet-url="https://x.com/NVIDIAAIDev/status/1860042391673274386" data-height="300"></div>
