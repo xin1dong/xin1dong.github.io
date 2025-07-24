@@ -16,5 +16,11 @@
     "date": "2025-07-24",
     "url": "./llm_algo_materials/index.html",
     "summary": "I will recommend some good materials (checked manually by myself) for learning LLMs' algorithms."
+  },
+  {
+    "title": "Learn LLMs Only with Good Materials (Reasoning)",
+    "date": "2025-07-24",
+    "url": "./llm_reasoning_materials/index.html",
+    "summary": "I will recommend some good materials (checked manually by myself) for learning LLMs' reasoning."
   }  
 ] 
