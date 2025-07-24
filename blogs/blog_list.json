@@ -3,6 +3,18 @@
     "title": "From Giants to Geniuses: The Rise of Small Language Models",
     "date": "2025-05-18",
     "url": "./slm/index.html",
-    "summary": "We talk about small (instead of large) language models, and how they are becoming more and more important for the future of agentic AI."
-  }
+    "summary": "I talk about small (instead of large) language models, and how they are becoming more and more important for the future of agentic AI."
+  },
+  {
+    "title": "Learn LLMs Only with Good Materials (Infrastructure)",
+    "date": "2025-07-24",
+    "url": "./llm_infra_materials/index.html",
+    "summary": "I will recommend some good materials (checked manually by myself) for learning LLMs' infrastructure."
+  },  
+  {
+    "title": "Learn LLMs Only with Good Materials (Algorithms)",
+    "date": "2025-07-24",
+    "url": "./llm_algo_materials/index.html",
+    "summary": "I will recommend some good materials (checked manually by myself) for learning LLMs' algorithms."
+  }  
 ] 
