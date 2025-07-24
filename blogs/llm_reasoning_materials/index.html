@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1024">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
+  <!-- Include the Marked library for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Include highlight.js for code syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+  <title>Learn LLMs Only with Good Materials (Reasoning) - Xin Dong</title>
+  <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body>
+<div class="main">
+  <div class="container"></div>
+
+  <div class="name">
+    <h1>Xin Dong</h1>
+    <p><a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Learn LLMs Only with Good Materials (Infrastructure)</p>
+  </div>
+
+  <div class="blog-content">
+    <div class="blog-outline">
+      <details open>
+        <summary>Table of Contents</summary>
+        <div id="table-of-contents">
+          <!-- Table of contents will be generated here -->
+        </div>
+      </details>
+    </div>
+    <div id="blog-post-content">
+      <!-- Blog post content will be loaded here -->
+      <p>Loading content...</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to load and render the Markdown blog post
+    async function loadBlogPost() {
+      try {
+        const response = await fetch('post.md');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blog post');
+        }
+        const markdown = await response.text();
+        
+        // Configure marked to use highlight.js for code syntax highlighting
+        marked.setOptions({
+          highlight: function(code, lang) {
+            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+            return hljs.highlight(code, { language }).value;
+          },
+          langPrefix: 'hljs language-'
+        });
+        
+        // Convert Markdown to HTML and set the content
+        document.getElementById('blog-post-content').innerHTML = marked.parse(markdown);
+        
+        // Initialize highlight.js for code blocks
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        
+        // Generate table of contents
+        generateTableOfContents();
+        
+        // Make external links open in new tabs
+        makeExternalLinksOpenNewTab();
+      } catch (error) {
+        console.error('Error loading blog post:', error);
+        document.getElementById('blog-post-content').innerHTML = '<p>Error loading blog post.</p>';
+      }
+    }
+    
+    // Function to generate table of contents from headings
+    function generateTableOfContents() {
+      const headings = document.querySelectorAll('#blog-post-content h1, #blog-post-content h2, #blog-post-content h3, #blog-post-content h4');
+      const tocContainer = document.getElementById('table-of-contents');
+      
+      if (headings.length === 0) {
+        tocContainer.innerHTML = '<p>No contents found</p>';
+        return;
+      }
+      
+      const toc = document.createElement('ul');
+      toc.className = 'toc-list';
+      
+      headings.forEach((heading, index) => {
+        // Add an ID to the heading if it doesn't have one
+        if (!heading.id) {
+          heading.id = 'section-' + index;
+        }
+        
+        const listItem = document.createElement('li');
+        listItem.className = 'toc-item toc-level-' + heading.tagName.toLowerCase();
+        
+        const link = document.createElement('a');
+        link.textContent = heading.textContent;
+        link.href = '#' + heading.id;
+        
+        listItem.appendChild(link);
+        toc.appendChild(listItem);
+      });
+      
+      tocContainer.innerHTML = '';
+      tocContainer.appendChild(toc);
+    }
+    
+    // Function to make external links open in a new tab
+    function makeExternalLinksOpenNewTab() {
+      const content = document.getElementById('blog-post-content');
+      const links = content.querySelectorAll('a');
+      
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        // Only apply to links that aren't anchor links
+        if (href && !href.startsWith('#')) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    }
+    
+    // Load the blog post when the page loads
+    window.addEventListener('DOMContentLoaded', loadBlogPost);
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Xin Dong. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html> 
