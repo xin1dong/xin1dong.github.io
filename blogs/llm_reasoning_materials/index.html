@@ -10,6 +10,32 @@
   <link rel="stylesheet" href="../blog.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
 
+  <style>
+    h4 {
+      font-size: 1em !important;
+      color: #555 !important;
+      font-weight: bold !important;
+    }
+  </style>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <!-- MathJax Script -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
           integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
           crossorigin="anonymous"></script>
@@ -37,7 +63,7 @@
 
   <div class="name">
     <h1>Xin Dong</h1>
-    <p><a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Learn LLMs Only with Good Materials (Infrastructure)</p>
+    <p><a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Learn LLMs Only with Good Materials (Reasoning)</p>
   </div>
 
   <div class="blog-content">
@@ -63,7 +89,12 @@
         if (!response.ok) {
           throw new Error('Failed to fetch blog post');
         }
-        const markdown = await response.text();
+        let markdown = await response.text();
+        
+        // Pre-process markdown to preserve LaTeX
+        markdown = markdown.replace(/(\$\$[\s\S]*?\$\$)/g, '`$1`');
+        markdown = markdown.replace(/(\\\[[\s\S]*?\\\])/g, '`$1`');
+        markdown = markdown.replace(/(\$[\s\S]*?\$)/g, '`$1`');
         
         // Configure marked to use highlight.js for code syntax highlighting
         marked.setOptions({
@@ -75,12 +106,26 @@
         });
         
         // Convert Markdown to HTML and set the content
-        document.getElementById('blog-post-content').innerHTML = marked.parse(markdown);
+        let html = marked.parse(markdown);
+        
+        // Post-process HTML to restore LaTeX
+        html = html.replace(/<code>(\$\$[\s\S]*?\$\$)<\/code>/g, '$1');
+        html = html.replace(/<code>(\\\[[\s\S]*?\\\])<\/code>/g, '$1');
+        html = html.replace(/<code>(\$[\s\S]*?\$)/g, '$1');
+        
+        document.getElementById('blog-post-content').innerHTML = html;
         
         // Initialize highlight.js for code blocks
         document.querySelectorAll('pre code').forEach((block) => {
           hljs.highlightBlock(block);
         });
+        
+        // Process MathJax after content is loaded
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise([document.getElementById('blog-post-content')]).then(() => {
+            console.log('MathJax typesetting complete');
+          }).catch((err) => console.log('MathJax typesetting failed: ' + err.message));
+        }
         
         // Generate table of contents
         generateTableOfContents();
