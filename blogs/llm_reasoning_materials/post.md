@@ -52,7 +52,10 @@ $\pi_\theta(y_{i,t}|x,y_{i,<t})$ is the token-wise likelihood on one training sa
 #### Importance Sampling and Clipping
 The theoretical justification for $\frac{1}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$ is importance sampling, given that $(x, y_i)$ is sampled from $\pi_{\theta_\text{old}}$ but used to update $\pi_\theta$. However, the possible value of $\frac{1}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$ ranges from 1 to $\infty$, which can introduce huge variance in the gradient. 
 
-To mitigate this issue, GRPO uses a clipping technique to limit the value of $w_{i,t}(\theta)$ to a reasonable range. The impact of clipping is more like a token filtering mechanism. For example, when $\hat{A}_{i,t}>0$ and $w_{i,t}(\theta) > (1 + \epsilon)$ (where a typical value of $\epsilon$ is 0.2), the corresponding token $y_{i,t}$'s loss $\pi_\theta(y_{i,t}|x,y_{i,<t})$ won't be used in the gradient calculation. 
+To mitigate this issue, GRPO uses a clipping technique to limit the value of $w_{i,t}(\theta)$ to a reasonable range. 
+Note that the clipping is not directly applied to $\frac{1}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$. However, when $\frac{1}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$ is smaller, it is easier for $w_{i,t}(\theta) = \frac{\pi_{\theta}(y_{i,t}|x,y_{i,<t})}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$ to be clipped.
+
+The impact of clipping is more like a token filtering mechanism. For example, when $\hat{A}_{i,t}>0$ and $w_{i,t}(\theta) > (1 + \epsilon)$ (where a typical value of $\epsilon$ is 0.2), the corresponding token $y_{i,t}$'s loss $\pi_\theta(y_{i,t}|x,y_{i,<t})$ won't be used in the gradient calculation. 
 
 In practice, this clipping technique introduces an extra hyperparameter $\epsilon$. DAPO [[ByteDance Seed, 2025](https://arxiv.org/pdf/2503.14476)] discovered that using a higher clipping upper bound $1 + \epsilon=1.28$ can encourage the model to explore more aggressively and improve reasoning performance. This makes sense because it results in filtering fewer tokens where $\pi_\theta$ differs from $\pi_{\theta_\text{old}}$, which is usually termed *exploration* in RL.
 
