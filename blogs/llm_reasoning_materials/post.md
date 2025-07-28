@@ -125,6 +125,11 @@ The gradients of the two losses are:
 \end{aligned}
 \]
 
+We can clearly see that:
+- In **arithmetic mean** loss, the gradient is a weighted average of individual gradients where the weights are $\frac{1}{a_i}$.
+
+- In **geometric mean** loss, the gradient is a weighted average of individual gradients where the weights are $\frac{\left({\Pi_{i=1}^N f_\theta(x_i)}\right)^{1/N}}{\left({\Pi_{i=1}^N a_i}\right)^{1/N}} \cdot \frac{1}{f_\theta(x_i)}$.
+
 or 
 
 \[
@@ -135,16 +140,23 @@ or
 \end{aligned}
 \]
 
+Let's also put the vanilla PPO into the game. 
+
+\[
+\begin{aligned}
+\nabla \mathcal{L}_\text{PPO} 
+&= \frac{\left({\Pi_{i=1}^N f_\theta(x_i)}\right)}{\left({\Pi_{i=1}^N a_i}\right)} \cdot \frac{1}{N} \sum_{i=1}^N  \left(\nabla_\theta \log f_\theta(x_i)\right)
+\end{aligned}
+\]
+
+
 We can clearly see that:
-- In **arithmetic mean** loss, the gradient is a weighted average of individual gradients where the weights are $\frac{1}{a_i}$.
-
-- In **geometric mean** loss, the gradient is a weighted average of individual gradients where the weights are $\frac{\left({\Pi_{i=1}^N f_\theta(x_i)}\right)^{1/N}}{\left({\Pi_{i=1}^N a_i}\right)^{1/N}} \cdot \frac{1}{f_\theta(x_i)}$.
-
-or
 
 - In **arithmetic mean** loss, the gradient is a weighted average of individual **log** gradients where the weights are $\frac{f_\theta(x_i)}{a_i}$.
 
 - In **geometric mean** loss, the gradient is a weighted average of individual **log** gradients where the weights are all the same: $\frac{\left({\Pi_{i=1}^N f_\theta(x_i)}\right)^{1/N}}{\left({\Pi_{i=1}^N a_i}\right)^{1/N}}$.
+
+- In **PPO** loss (check discussion [here](https://x.com/zzlccc/status/1949386447880061051/photo/3)), the gradient is a weighted average of individual **log** gradients where the weights are all the same: $\frac{\left({\Pi_{i=1}^N f_\theta(x_i)}\right)}{\left({\Pi_{i=1}^N a_i}\right)}$.
 
 The real loss of GSPO is:
 
