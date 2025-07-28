@@ -82,6 +82,31 @@
   </div>
 
   <script>
+    // Function to handle hash fragments (anchor links) after content is loaded
+    function handleHashFragment() {
+      // Check if there's a hash fragment in the URL
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1); // Remove the '#'
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Small delay to ensure MathJax and other processing is complete
+          setTimeout(() => {
+            try {
+              // Use smooth scrolling if supported
+              targetElement.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            } catch (e) {
+              // Fallback for older browsers
+              targetElement.scrollIntoView(true);
+            }
+          }, 200);
+        }
+      }
+    }
+    
     // Function to load and render the Markdown blog post
     async function loadBlogPost() {
       try {
@@ -124,7 +149,12 @@
         if (window.MathJax && window.MathJax.typesetPromise) {
           window.MathJax.typesetPromise([document.getElementById('blog-post-content')]).then(() => {
             console.log('MathJax typesetting complete');
+            // Handle hash fragment after MathJax is complete
+            handleHashFragment();
           }).catch((err) => console.log('MathJax typesetting failed: ' + err.message));
+        } else {
+          // If MathJax is not available, handle hash fragment immediately
+          handleHashFragment();
         }
         
         // Generate table of contents
@@ -189,6 +219,14 @@
     
     // Load the blog post when the page loads
     window.addEventListener('DOMContentLoaded', loadBlogPost);
+    
+    // Handle hash changes after the page is loaded (for navigation within the page)
+    window.addEventListener('hashchange', function() {
+      // Only handle hash changes if content is already loaded
+      if (document.getElementById('blog-post-content').innerHTML !== '<p>Loading content...</p>') {
+        handleHashFragment();
+      }
+    });
   </script>
 
   <footer>
