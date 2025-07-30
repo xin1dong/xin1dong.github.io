@@ -212,3 +212,47 @@ These tokens that have high entropy and steer the reasoning path are called **fo
 They call high-entropy tokens **reasoning-related tokens** because these tokens act as logical connectors, and they call low-entropy tokens **knowledge-related tokens** because these tokens are usually words tied to factual knowledge (although I'm not sure if this is a great definition of 'knowledge'). 
 
 The solution they proposed is to deal with these two types of tokens differently by using two sets of hyperparameters. Specifically, they use a larger $\epsilon$ and smaller coefficient of $\mathcal{D}_{\text{KL}}(\pi_\theta\|\pi_{\theta_\text{ref}})$ for reasoning-related tokens.
+
+
+## Rollout 
+
+### Trajectory Forking 
+
+Regardless of which RL training method we use, we need to roll out several responses. Any improvements to rollout efficiency can enhance both the reward signal and training speed. 
+
+In the previous section, we discussed 'forking tokens,' but we didn't actually fork reasoning trajectories. A straightforward approach is to fork a reasoning trajectory at specific tokens. 
+
+```bash
+          |-- E F    (r1)
+A B C D --| 
+          |-- G H    (r2) 
+```
+
+In this example, we fork the reasoning trajectory after token 'D', generating two different trajectories with different rewards $r_1$ and $r_2$. Both trajectories share the same prefix 'A B C D'.
+
+Trajectory forking offers two potential benefits:
+- We can reuse the computation of the shared prefix, reducing the total computational cost of rollout.
+- The shared prefix receives rewards from multiple trajectories, which can be averaged to better estimate its ground-truth reward.
+
+[Zheng et al., 2025](https://arxiv.org/pdf/2507.07017) and [Dong et al., 2025](https://arxiv.org/pdf/2507.19849) adopted this approach to replace independent rollout. Both studies determine the timing of trajectory forking based on token entropy. When a token's entropy is high, the model is more uncertain about it, making it more likely to fork the trajectory and allow the model to explore this uncertainty. This aligns with our previous [discussion](#section-10) about high-entropy tokens.
+
+Let's also discuss reward estimation for shared prefix tokens. 
+
+According to our derivation in [Token-wise Impact on Training](#section-9) and assuming we use GRPO, the scaled advantage of token $y_{i,t}$ is:
+\[
+\frac{\pi_\theta(y_{i,t}|x,y_{i,<t})}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})} \hat{A}_{i,t}
+\]
+
+Note that this token belongs to both sequence $i=1$ and $i=2$ simultaneously. Additionally, regardless of whether $i$ is 1 or 2, the term $\frac{\pi_\theta(y_{i,t}|x,y_{i,<t})}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})}$ remains the same. 
+
+$\hat{A}_{i=1,t}$ and $\hat{A}_{i=2,t}$ differ because rewards $r_1$ and $r_2$ are different.
+
+When we average across trajectories, we obtain the average advantage of this token:
+
+\[
+\frac{\pi_\theta(y_{i,t}|x,y_{i,<t})}{\pi_{\theta_\text{old}}(y_{i,t}|x,y_{i,<t})} \cdot \mathop{mean}(\hat{A}_{i=1,t}, \hat{A}_{i=2,t})
+\]
+
+The conclusion is similar when using GSPO. 
+
+[Dong et al., 2025](https://arxiv.org/pdf/2507.19849) provides an empirical comparison between trajectory forking and independent rollout. More importantly, they control for the total number of rollouts in both cases. The results show that trajectory forking can achieve better performance than independent rollout when training the model to use tools through RL. 
