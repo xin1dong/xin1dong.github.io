@@ -45,15 +45,36 @@
 }
 
 .blog-content pre {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
+  background: linear-gradient(135deg, #f6f8fa 0%, #e9ecef 100%);
+  border: 1px solid #d0d7de;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
   margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
 .blog-content code {
   font-family: 'Courier New', Courier, monospace;
+  word-break: break-word;
+  white-space: pre-wrap;
+  background-color: #f1f3f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e1e4e8;
+  font-size: 0.9em;
+}
+
+/* Ensure code inside pre blocks doesn't get double styling */
+.blog-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
 }
 
 .blog-content h1 {

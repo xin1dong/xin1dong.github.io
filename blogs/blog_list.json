@@ -10,5 +10,11 @@
     "date": "2025-07-27",
     "url": "./llm_reasoning_materials/index.html",
     "summary": "I will recommend some good materials (checked manually by myself) for learning LLMs' reasoning."
+  },
+  {
+    "title": "Attention Variants",
+    "date": "2025-08-03",
+    "url": "./attn_variants/index.html",
+    "summary": "I will talk about some attention variants, including GQA, MLA, and so on."
   }  
 ] 
