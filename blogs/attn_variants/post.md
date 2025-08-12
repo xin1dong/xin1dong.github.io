@@ -83,7 +83,7 @@ In summary, since MLA shares KV pairs in a compressed low-rank space, it allows 
 
 An additional trick that DeepSeek-V2 uses is that they preserve a few individual dimensions in query and key to add RoPE and hold positional information. The reason for using extra dimensions is that RoPE is not compatible with equation (1). DeepSeek-V2 split head dimension into two parts: one part is using MLA without RoPE, and the other part is using MQA with RoPE. The second part is much smaller than the first part but is sufficient to model positional information. 
 
-This can be treated as partial RoPE. Partial RoPE [[BarBero et al., 2025]](https://openreview.net/pdf?id=GtvuNrk58a) actually can achieve better performance than full RoPE even for standard MHA. The intuition is that RoPE, as an injection of positional information, occupies the capacity for semantic information modeling. If we only apply RoPE to part of the dimensions, then we can free other dimensions to better capture semantic information. 
+This can be treated as partial RoPE. Partial RoPE [[Barbero et al., 2025]](https://openreview.net/pdf?id=GtvuNrk58a) actually can achieve better performance than full RoPE even for standard MHA. The intuition is that RoPE, as an injection of positional information, occupies the capacity for semantic information modeling. If we only apply RoPE to part of the dimensions, then we can free other dimensions to better capture semantic information. 
 
 
 
