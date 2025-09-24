@@ -13,6 +13,120 @@
     .news ul li {
       margin-bottom: 8px;
     }
+    
+    /* Tag system styles */
+    .paper-tag {
+      display: inline-block;
+      padding: 2px 6px;
+      margin: 1px 3px 1px 0;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+      vertical-align: baseline;
+    }
+    
+    .tag-llm { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .tag-architecture { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .tag-quantization { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .tag-federated { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .tag-cv { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .tag-efficiency { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+    .tag-security { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333; }
+    .tag-training { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; }
+    .tag-reasoning { background: linear-gradient(135deg, #ff8a80 0%, #ea6f5a 100%); }
+    .tag-dataset { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); color: #333; }
+    .tag-agents { background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); }
+    
+    /* Tag filter section */
+    .tag-filter-section {
+      margin: 25px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 12px;
+      border: 1px solid #e1e8ed;
+    }
+    
+    .tag-filter-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .tag-filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .filter-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 4px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      opacity: 0.8;
+    }
+    
+    .filter-tag:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .filter-tag.active {
+      opacity: 1;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transform: scale(1.05);
+    }
+    
+    .clear-filter {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+      color: white;
+    }
+    
+    /* Paper item filtering */
+    .paper-item.hidden {
+      display: none !important;
+    }
+    
+    .paper-item {
+      transition: all 0.3s ease;
+    }
+    
+    /* Responsive design for tags */
+    @media (max-width: 768px) {
+      .tag-filter-container {
+        justify-content: center;
+      }
+      
+      .filter-tag {
+        padding: 6px 12px;
+        font-size: 11px;
+        margin: 2px;
+      }
+      
+      .paper-tag {
+        font-size: 9px;
+        padding: 1px 4px;
+        margin: 1px 2px 1px 0;
+        border-radius: 6px;
+      }
+    }
   </style>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -61,8 +175,9 @@
       <tbody>
       <tr>
         <td align="top">
-          <img class="me" src="images/me.jpg" alt="Xin Dong" style="width:220px;">
-          <p style="font-size: x-small">Cambridge, MA, May 2020</p>
+          <img class="me" src="images/noo_me.jpg" alt="Xin Dong" style="width:220px;">
+          <!-- <p style="font-size: x-small">Cambridge, MA, May 2020</p> -->
+          <p style="font-size: x-small">Shot in Santa Cruz, CA</p>
         </td>
         <td align="left">
           <p>I am a research scientist at <a target="_blank" href="https://research.nvidia.com">NVIDIA Research</a>, where I lead training of intelligent and efficient foundation models.
@@ -247,6 +362,25 @@
       </div>
     </div>
 
+    <!-- Tag Filter Section -->
+    <div class="tag-filter-section">
+      <div class="tag-filter-title">Filter Papers by Topic</div>
+      <div class="tag-filter-container">
+        <span class="filter-tag clear-filter" data-tag="all">All Papers</span>
+        <span class="filter-tag tag-llm" data-tag="llm">LLM</span>
+        <span class="filter-tag tag-architecture" data-tag="architecture">Architecture</span>
+        <span class="filter-tag tag-reasoning" data-tag="reasoning">Reasoning</span>
+        <span class="filter-tag tag-dataset" data-tag="dataset">Dataset</span>
+        <span class="filter-tag tag-agents" data-tag="agents">Agents</span>
+        <span class="filter-tag tag-efficiency" data-tag="efficiency">Efficiency</span>
+        <span class="filter-tag tag-quantization" data-tag="quantization">Quantization</span>
+        <span class="filter-tag tag-federated" data-tag="federated">Federated</span>
+        <span class="filter-tag tag-cv" data-tag="cv">Computer Vision</span>
+        <span class="filter-tag tag-security" data-tag="security">Security</span>
+        <span class="filter-tag tag-training" data-tag="training">Training</span>
+      </div>
+    </div>
+
 
   
 
@@ -254,240 +388,9 @@
 
 
     
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/incontext.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            Unraveling the Mechanics of Learning-Based Demonstration Selection for In-Context Learning
-          </div>
-          <div class="paper-conference">Annual Meeting of the Association for Computational Linguistics (<a href="https://2025.aclweb.org/">ACL 2025 Oral</a>)</div>
-          <div class="paper-authors">
-            Hui Liu, Wenya Wang, Hao Sun, Chris Xing Tian, Chenqi Kong, <b>Xin Dong</b>, Haoliang Li
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/pdf/2406.11890">[PDF]</a>
-            <!-- <a target="_blank" href="https://huggingface.co/collections/nvidia/climb-datasets-67e428bdb9aaced2acda191f">[Code]</a> -->
-          </div>
-        </div>
-      </div>
-    </div>     
 
 
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/longmamba.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            LongMamba: Enhancing Mamba's Long-Context Capabilities via Training-Free Receptive Field Enlargement
-          </div>
-          <div class="paper-conference">International Conference on Learning Representations (<a href="https://iclr.cc/">ICLR 2025</a>)</div>
-          <div class="paper-authors">
-            Zhifan Ye, Kejing Xia, Yonggan Fu, <b>Xin Dong</b>, Jihoon Hong, Xiangchi Yuan, Shizhe Diao, Jan Kautz, Pavlo Molchanov, Yingyan Celine Lin
-          </div>
-          <div>
-            <a target="_blank" href="https://openreview.net/pdf?id=fMbLszVO1H">[PDF]</a>
-            <!-- <a target="_blank" href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">[Code]</a> -->
-          </div>
-        </div>
-      </div>
-    </div> 
 
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/Lacache.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            	LaCache: Ladder-Shaped KV Caching for Efficient Long-Context Modeling of Large Language Models
-          </div>
-          <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML 2025</a>)</div>
-          <div class="paper-authors">
-            Dachuan Shi, Yonggan Fu, Xiangchi Yuan, Zhongzhi Yu, Haoran You, Sixu Li, <b>Xin Dong</b>, Jan Kautz, Pavlo Molchanov, Yingyan Celine Lin
-          </div>
-          <div>
-            <a target="_blank" href="https://www.simonxin.com">[PDF]</a>
-            <!-- <a target="_blank" href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">[Code]</a> -->
-          </div>
-        </div>
-      </div>
-    </div>     
-
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/depth_pruning_llm.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            A Deeper Look at Depth Pruning of LLMs
-          </div>
-          <div class="paper-conference">ICML 2024 Workshop on Theoretical Foundations of Foundation Models (<a href="https://sites.google.com/view/tf2m">ICML Workshop 2024</a>)</div>
-          <div class="paper-authors">
-            Shoaib Ahmed Siddiqui, <b>Xin Dong</b>, Greg Heinrich, Thomas Breuel, Jan Kautz, David Krueger, Pavlo Molchanov
-          </div>
-          <div>
-            <a target="_blank" href="https://www.arxiv.org/abs/2407.16286">[PDF]</a>
-            <a target="_blank" href="https://github.com/shoaibahmed/llm_depth_pruning">[Code]</a>
-          </div>
-        </div>
-      </div>
-    </div>    
-
-
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/watermark_detect.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            Finding needles in a haystack: A Black-Box Approach to Invisible Watermark Detection
-          </div>
-          <div class="paper-conference">2024 European Conference on Computer Vision (<a href="https://eccv.ecva.net/">ECCV 2024</a>)</div>
-          <div class="paper-authors">
-            Minzhou Pan, Zhenting Wang, <b>Xin Dong</b>, Vikash Sehwag, Lingjuan Lyu, Xue Lin
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/abs/2403.15955">[PDF]</a>
-            <!-- <a target="_blank" href="https://github.com/shoaibahmed/llm_depth_pruning">[Code]</a> -->
-          </div>
-        </div>
-      </div>
-    </div>  
-
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/background_od.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            A Simple Background Augmentation Method for Object Detection with Diffusion Mode
-          </div>
-          <div class="paper-conference">2024 European Conference on Computer Vision (<a href="https://eccv.ecva.net/">ECCV 2024</a>)</div>
-          <div class="paper-authors">
-            Yuhang Li, <b>Xin Dong</b>, Chen Chen, Weiming Zhuang, Lingjuan Lyu
-          </div>
-          <div>
-            <a target="_blank" href="">[PDF]</a>
-            <!-- <a target="_blank" href="https://github.com/shoaibahmed/llm_depth_pruning">[Code]</a> -->
-          </div>
-        </div>
-      </div>
-    </div>  
-
-    <!--gpt pruning-->
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/ood_seg.png" alt="gpt-pruning">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            Segment Every Out-of-Distribution Object
-          </div>
-          <div class="paper-conference">IEEE/CVF Conference on Computer Vision and Pattern Recognition (<a href="https://cvpr2024.thecvf.com/">CVPR 2024</a>)</div>
-          <div class="paper-authors">
-            Wenjie Zhao, Jia Li, <b>Xin Dong</b>, Yu Xiang, Yunhui Guo
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/abs/2311.16516">[PDF]</a>
-            <a target="_blank" href="https://github.com/WenjieZhao1/S2M">[Code]</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!--fed-->
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/fedicon.png" alt="fedicon">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            Is Heterogeneity Notorious? Taming Heterogeneity to Handle Test-Time Shift in Federated Learning
-          </div>
-          <div class="paper-conference">Conference on Neural Information Processing Systems (<a href="https://nips.cc/virtual/2023/poster/70366">NeurIPS 2023</a>)</div>
-          <div class="paper-authors">
-            Yue Tan, Chen Chen, Weiming Zhuang, <b>Xin Dong</b>, Lingjuan Lyu, Guodong Long
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/pdf/2310.04680.pdf">[PDF]</a>
-          </div>
-        </div>
-      </div>
-    </div>    
-    
-    <!--mTVR-->
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/dci.png" alt="mTVR">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            Privacy Vulnerability of Split Computing to Data-Free Model Inversion Attacks
-          </div>
-          <div class="paper-conference">British Machine Vision Conference (<a href="https://bmvc2022.org/">BMVC 2022</a>)</div>
-          <div class="paper-authors">
-            <b>Xin Dong</b>, Hongxu Yin, Jose M. Alvarez, Jan Kautz, Pavlo Molchanov, H.T. Kung
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/abs/2107.06304">[PDF]</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!--mTVR-->
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" style="max-height:130px!important;max-width:160px!important;" src="images/HFL.png" alt="mTVR">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            SphereFed: Hyperspherical Federated Learning
-          </div>
-          <div class="paper-conference">European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/">ECCV 2022</a>)</div>
-          <div class="paper-authors">
-            <b>Xin Dong</b>, Sai Qian Zhang, Ang Li, H.T. Kung
-          </div>
-          <div>
-            <a target="_blank" href="https://arxiv.org/abs/2207.09413">[PDF]</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     
 
@@ -621,102 +524,10 @@
     </div>
 
 
-    <!--ClipBERT-->
-    <div class="row my-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" src="images/mixmix.png" alt="VL-T5">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            MixMix: All You Need for Data-Free Compression Are Feature and Data Mixing
-            <!-- <span class="text-red">(Oral)</span> -->
-          </div>
-          <div class="paper-conference">IEEE/CVF Conference on Computer Vision and Pattern Recognition (<a href="https://cvpr2021.thecvf.com/">CVPR 2021</a>)</div>
-          <div class="paper-authors">
-            Yuhang Li, Feng Zhu, Ruihao Gong, Mingzhu Shen, <b>Xin Dong</b>, Fengwei Yu, Shaoqing Lu, Shi Gu
-          </div>
-          <div>
-            <a target="_blank" href="https://openaccess.thecvf.com/content/ICCV2021/papers/Li_MixMix_All_You_Need_for_Data-Free_Compression_Are_Feature_and_ICCV_2021_paper.pdf">[PDF]</a>
-            <!-- <a target="_blank" href="https://github.com/yhhhli/SNN_Calibration">[Code]</a> -->
-<!--             <a class="github-button" href="https://github.com/jayleicn/ClipBERT" data-icon="octicon-star"
-               data-show-count="true" aria-label="Star jayleicn/ClipBERT on GitHub">Star</a> -->
-          </div>
-        </div>
-      </div>
-    </div>    
 
 
 
 
-    <!--MART-->
-    <div class="row mb-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" src="images/apot.png" alt="MART">
-        </div>
-      </div>
-
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-             Additive Powers-of-Two Quantization: A Non-uniform Discretization for Neural Networks
-          </div>
-          <div class="paper-conference">International Conference on Learning Representations (<a href="https://acl2020.org/">ICLR 2020</a>)</div>
-          <div class="paper-authors">
-            Yuhang Li*, <b>Xin Dong*</b>, Wei Wang 
-          </div>
-           <div class="paper-authors">
-            (<b>*: equal contribution</b>)
-          </div>        
-          <div>
-            <a href="https://arxiv.org/pdf/1909.13144.pdf">[PDF]</a>
-            <!-- <a href="./files/acl20_mart_talk.pptx">[Slides]</a> -->
-            <a href="https://github.com/yhhhli/APoT_Quantization">[Code]</a>
-            <a class="github-button" href="https://github.com/yhhhli/APoT_Quantization"
-               data-icon="octicon-star" data-show-count="true"
-               aria-label="Star APoT_Quantization on GitHub">Star</a>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!--TVQA PLUS-->
-    <div class="row mb-3">
-      <div class="col-lg-3">
-        <div class="paper-img-wrapper">
-          <img class="paper-img" src="images/rtn.png" alt="TVQA PLUS">
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="paper-text">
-          <div class="paper-title">
-            RTN: Reparameterized Ternary Network
-          </div>
-          <div class="paper-conference">The Thirty-Fourth AAAI Conference on Artificial Intelligence (<a href="https://aaai.org/Conferences/AAAI-20/">AAAI 2020</a>)</div>
-          <div class="paper-authors">
-            Yuhang Li*, <b>Xin Dong*</b>, Sai Qian Zhang, HaoliBai, Yuanpeng Chen, Wei Wang 
-          </div>
-          <div class="paper-authors">
-            (<b>*: equal contribution</b>)
-          </div>
-          <div>
-            <a href="https://arxiv.org/pdf/1912.02057.pdf">[PDF]</a>
-<!--             <a href="./files/acl20_tvqa_plus_talk.pptx">[Slides]</a>
-            <a target="_blank" href="http://tvqa.cs.unc.edu/">[Dataset]</a>
-            <a target="_blank" href="https://github.com/jayleicn/TVQA-PLUS">[Code]</a>
-            <a class="github-button" href="https://github.com/jayleicn/TVQAplus"
-               data-icon="octicon-star" data-show-count="true"
-               aria-label="Star jayleicn/recurrent-transformer on GitHub">Star</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
@@ -1079,6 +890,188 @@ function toggleTwitterSection() {
       }
     });
   });
+</script>
+
+<script>
+// Enhanced Tag Filtering System with Multi-Selection
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const paperItems = document.querySelectorAll('.paper-item');
+    const allButton = document.querySelector('.filter-tag[data-tag="all"]');
+    let activeTags = new Set(); // Use Set to track multiple active tags
+    
+    // Set initial active state - "All Papers" selected
+    allButton.classList.add('active');
+    
+    // Add click event listeners to filter tags
+    filterTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            const tagValue = this.getAttribute('data-tag');
+            
+            if (tagValue === 'all') {
+                // Clear all selections and show all papers
+                activeTags.clear();
+                filterTags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                filterPapers();
+            } else {
+                // Remove "All Papers" selection
+                allButton.classList.remove('active');
+                
+                // Toggle this tag
+                if (activeTags.has(tagValue)) {
+                    // Unselect tag
+                    activeTags.delete(tagValue);
+                    this.classList.remove('active');
+                } else {
+                    // Select tag
+                    activeTags.add(tagValue);
+                    this.classList.add('active');
+                }
+                
+                // If no tags selected, revert to "All Papers"
+                if (activeTags.size === 0) {
+                    allButton.classList.add('active');
+                }
+                
+                filterPapers();
+            }
+            
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+        
+        // Add hover effects
+        tag.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('active')) {
+                this.style.opacity = '1';
+                this.style.transform = 'translateY(-2px)';
+            }
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.opacity = '0.8';
+                this.style.transform = '';
+            }
+        });
+    });
+    
+    function filterPapers() {
+        paperItems.forEach(paper => {
+            let shouldShow = false;
+            
+            if (activeTags.size === 0) {
+                // Show all papers if no specific tags are selected
+                shouldShow = true;
+            } else {
+                // Check if paper has any of the selected tags
+                const paperTags = paper.getAttribute('data-tags');
+                if (paperTags) {
+                    const paperTagArray = paperTags.split(',').map(tag => tag.trim());
+                    shouldShow = Array.from(activeTags).some(activeTag => 
+                        paperTagArray.includes(activeTag)
+                    );
+                }
+            }
+            
+            if (shouldShow) {
+                // Show paper with smooth animation
+                paper.classList.remove('hidden');
+                paper.style.opacity = '0';
+                setTimeout(() => {
+                    paper.style.transition = 'opacity 0.3s ease';
+                    paper.style.opacity = '1';
+                }, 50);
+            } else {
+                // Hide paper with smooth animation
+                paper.style.opacity = '0';
+                setTimeout(() => {
+                    paper.classList.add('hidden');
+                }, 300);
+            }
+        });
+        
+        // Update filter feedback
+        updateFilterFeedback();
+    }
+    
+    function updateFilterFeedback() {
+        const visiblePapers = document.querySelectorAll('.paper-item:not(.hidden)').length;
+        const filterTitle = document.querySelector('.tag-filter-title');
+        
+        if (activeTags.size === 0) {
+            filterTitle.textContent = 'Filter Papers by Topic';
+        } else if (activeTags.size === 1) {
+            // Single tag selected
+            const selectedTag = Array.from(activeTags)[0];
+            const formattedTagName = formatTagName(selectedTag);
+            filterTitle.textContent = `${formattedTagName} Papers (${visiblePapers} found)`;
+        } else {
+            // Multiple tags selected
+            const tagNames = Array.from(activeTags).map(tag => formatTagName(tag));
+            filterTitle.textContent = `${tagNames.join(' + ')} Papers (${visiblePapers} found)`;
+        }
+        
+        // Add a subtle animation to the title
+        filterTitle.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            filterTitle.style.transition = 'transform 0.2s ease';
+            filterTitle.style.transform = 'scale(1)';
+        }, 100);
+    }
+    
+    function formatTagName(tag) {
+        const tagName = tag.charAt(0).toUpperCase() + tag.slice(1);
+        const formattedNames = {
+            'Cv': 'CV',
+            'Llm': 'LLM',
+            'Federated': 'Federated',
+            'Quantization': 'Quantization',
+            'Architecture': 'Architecture',
+            'Reasoning': 'Reasoning',
+            'Dataset': 'Dataset',
+            'Agents': 'Agents',
+            'Efficiency': 'Efficiency',
+            'Security': 'Security',
+            'Training': 'Training'
+        };
+        return formattedNames[tagName] || tagName;
+    }
+    
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+        if (e.key >= '1' && e.key <= '9') {
+            const index = parseInt(e.key) - 1;
+            const tags = Array.from(filterTags);
+            if (tags[index]) {
+                tags[index].click();
+            }
+        }
+        
+        // Clear all filters with 'Escape' key
+        if (e.key === 'Escape') {
+            allButton.click();
+        }
+    });
+    
+    // Add "Clear All" functionality with double-click on filter section
+    document.querySelector('.tag-filter-section').addEventListener('dblclick', function() {
+        allButton.click();
+    });
+    
+    // Add smooth scrolling when filtering
+    function smoothScrollToFilterSection() {
+        const filterSection = document.querySelector('.tag-filter-section');
+        filterSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+});
 </script>
 
 </body>
