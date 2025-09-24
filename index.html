@@ -29,25 +29,22 @@
       vertical-align: baseline;
     }
     
-    .tag-llm { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .tag-architecture { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .tag-quantization { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .tag-federated { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .tag-cv { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-    .tag-efficiency { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
-    .tag-security { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333; }
-    .tag-training { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; }
-    .tag-reasoning { background: linear-gradient(135deg, #ff8a80 0%, #ea6f5a 100%); }
-    .tag-dataset { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); color: #333; }
-    .tag-agents { background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); }
+    .tag-llm { background: #8b5cf6; }
+    .tag-architecture { background: #f472b6; }
+    .tag-quantization { background: #22d3ee; }
+    .tag-release { background: #34d399; }
+    .tag-cv { background: #fbbf24; }
+    .tag-efficiency { background: #64748b; }
+    .tag-context { background: #f97316; }
+    .tag-training { background: #ef4444; }
+    .tag-reasoning { background: #3b82f6; }
+    .tag-dataset { background: #059669; }
+    .tag-agents { background: #7c3aed; }
     
     /* Tag filter section */
     .tag-filter-section {
       margin: 25px 0;
       padding: 20px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      border-radius: 12px;
-      border: 1px solid #e1e8ed;
     }
     
     .tag-filter-title {
@@ -62,23 +59,24 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
+      gap: 4px;
     }
     
     .filter-tag {
       display: inline-block;
-      padding: 8px 16px;
-      margin: 4px;
-      border-radius: 20px;
-      font-size: 12px;
+      padding: 4px 8px;
+      margin: 2px;
+      border-radius: 10px;
+      font-size: 10px;
       font-weight: 600;
       color: white;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.2px;
       cursor: pointer;
       transition: all 0.3s ease;
       border: 2px solid transparent;
       opacity: 0.8;
+      line-height: 1.1;
     }
     
     .filter-tag:hover {
@@ -115,9 +113,10 @@
       }
       
       .filter-tag {
-        padding: 6px 12px;
-        font-size: 11px;
-        margin: 2px;
+        padding: 3px 6px;
+        font-size: 9px;
+        margin: 1px;
+        border-radius: 8px;
       }
       
       .paper-tag {
@@ -372,12 +371,12 @@
         <span class="filter-tag tag-reasoning" data-tag="reasoning">Reasoning</span>
         <span class="filter-tag tag-dataset" data-tag="dataset">Dataset</span>
         <span class="filter-tag tag-agents" data-tag="agents">Agents</span>
+        <span class="filter-tag tag-release" data-tag="release">Release</span>
+        <span class="filter-tag tag-context" data-tag="context">Context</span>
         <span class="filter-tag tag-efficiency" data-tag="efficiency">Efficiency</span>
         <span class="filter-tag tag-quantization" data-tag="quantization">Quantization</span>
-        <span class="filter-tag tag-federated" data-tag="federated">Federated</span>
-        <span class="filter-tag tag-cv" data-tag="cv">Computer Vision</span>
-        <span class="filter-tag tag-security" data-tag="security">Security</span>
-        <span class="filter-tag tag-training" data-tag="training">Training</span>
+        <span class="filter-tag tag-cv" data-tag="cv">Vision</span>
+        <!-- <span class="filter-tag tag-training" data-tag="training">Training</span> -->
       </div>
     </div>
 
@@ -416,7 +415,7 @@
   
 
     
-    <div class="row my-3 paper-item" data-tags="llm,reasoning,training">
+    <div class="row my-3 paper-item" data-tags="llm,reasoning">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/prorl.jpeg" alt="gpt-pruning">
@@ -427,7 +426,6 @@
           <div class="paper-title">
             <span class="paper-tag tag-llm">LLM</span>
             <span class="paper-tag tag-reasoning">Reasoning</span>
-            <span class="paper-tag tag-training">Training</span>
             ProRL: Prolonged Reinforcement Learning Expands Reasoning Boundaries in Large Language Models
           </div>
           <div class="paper-conference">Neural Information Processing Systems (<a href="https://neurips.cc/">NeurIPS 2025</a>)</div>
@@ -449,7 +447,7 @@
     </div> 
 
 
-    <div class="row my-3 paper-item" data-tags="llm,architecture,reasoning">
+    <div class="row my-3 paper-item" data-tags="llm,release">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/Nemo.webp" alt="gpt-pruning">
@@ -459,8 +457,7 @@
         <div class="paper-text">
           <div class="paper-title">
             <span class="paper-tag tag-llm">LLM</span>
-            <span class="paper-tag tag-architecture">Architecture</span>
-            <span class="paper-tag tag-reasoning">Reasoning</span>
+            <span class="paper-tag tag-release">Release</span>
             Nemotron Nano 2
           </div>
           <!-- <div class="paper-conference">International Conference on Learning Representations (<a href="https://iclr.cc/">ICLR 2025</a>)</div> -->
@@ -481,7 +478,7 @@
       </div>
     </div>       
 
-    <div class="row my-3 paper-item" data-tags="llm,dataset,training">
+    <div class="row my-3 paper-item" data-tags="llm,dataset">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/climb.png" alt="gpt-pruning">
@@ -492,7 +489,6 @@
           <div class="paper-title">
             <span class="paper-tag tag-llm">LLM</span>
             <span class="paper-tag tag-dataset">Dataset</span>
-            <span class="paper-tag tag-training">Training</span>
             CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training
           </div>
           <!-- <div class="paper-conference">International Conference on Learning Representations (<a href="https://iclr.cc/">ICLR 2025</a>)</div> -->
@@ -546,7 +542,7 @@
 
 
     
-    <div class="row my-3 paper-item" data-tags="llm,training">
+    <div class="row my-3 paper-item" data-tags="llm,context">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/incontext.png" alt="gpt-pruning">
@@ -556,7 +552,7 @@
         <div class="paper-text">
           <div class="paper-title">
             <span class="paper-tag tag-llm">LLM</span>
-            <span class="paper-tag tag-training">Training</span>
+            <span class="paper-tag tag-context">Context</span>
             Unraveling the Mechanics of Learning-Based Demonstration Selection for In-Context Learning
           </div>
           <div class="paper-conference">Annual Meeting of the Association for Computational Linguistics (<a href="https://2025.aclweb.org/">ACL 2025 Oral</a>)</div>
@@ -572,7 +568,7 @@
     </div>     
 
 
-    <div class="row my-3 paper-item" data-tags="llm,architecture,efficiency">
+    <div class="row my-3 paper-item" data-tags="llm,efficiency">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/longmamba.png" alt="gpt-pruning">
@@ -582,7 +578,6 @@
         <div class="paper-text">
           <div class="paper-title">
             <span class="paper-tag tag-llm">LLM</span>
-            <span class="paper-tag tag-architecture">Architecture</span>
             <span class="paper-tag tag-efficiency">Efficiency</span>
             LongMamba: Enhancing Mamba's Long-Context Capabilities via Training-Free Receptive Field Enlargement
           </div>
@@ -679,7 +674,7 @@
     </div>
 
 
-    <div class="row my-3 paper-item" data-tags="cv,security">
+    <div class="row my-3 paper-item" data-tags="cv">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/watermark_detect.png" alt="gpt-pruning">
@@ -688,8 +683,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-cv">Computer Vision</span>
-            <span class="paper-tag tag-security">Security</span>
+            <span class="paper-tag tag-cv">Vision</span>
             Finding needles in a haystack: A Black-Box Approach to Invisible Watermark Detection
           </div>
           <div class="paper-conference">2024 European Conference on Computer Vision (<a href="https://eccv.ecva.net/">ECCV 2024</a>)</div>
@@ -713,7 +707,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-cv">Computer Vision</span>
+            <span class="paper-tag tag-cv">Vision</span>
             A Simple Background Augmentation Method for Object Detection with Diffusion Mode
           </div>
           <div class="paper-conference">2024 European Conference on Computer Vision (<a href="https://eccv.ecva.net/">ECCV 2024</a>)</div>
@@ -738,7 +732,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-cv">Computer Vision</span>
+            <span class="paper-tag tag-cv">Vision</span>
             Segment Every Out-of-Distribution Object
           </div>
           <div class="paper-conference">IEEE/CVF Conference on Computer Vision and Pattern Recognition (<a href="https://cvpr2024.thecvf.com/">CVPR 2024</a>)</div>
@@ -755,7 +749,7 @@
 
 
     <!--fed-->
-    <div class="row my-3 paper-item" data-tags="federated">
+    <div class="row my-3 paper-item" data-tags="training">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/fedicon.png" alt="fedicon">
@@ -764,7 +758,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-federated">Federated</span>
+            <span class="paper-tag tag-training">Training</span>
             Is Heterogeneity Notorious? Taming Heterogeneity to Handle Test-Time Shift in Federated Learning
           </div>
           <div class="paper-conference">Conference on Neural Information Processing Systems (<a href="https://nips.cc/virtual/2023/poster/70366">NeurIPS 2023</a>)</div>
@@ -779,7 +773,7 @@
     </div>    
     
     <!--mTVR-->
-    <div class="row my-3 paper-item" data-tags="security">
+    <div class="row my-3 paper-item" data-tags="cv">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/dci.png" alt="mTVR">
@@ -788,7 +782,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-security">Security</span>
+            <span class="paper-tag tag-cv">Vision</span>
             Privacy Vulnerability of Split Computing to Data-Free Model Inversion Attacks
           </div>
           <div class="paper-conference">British Machine Vision Conference (<a href="https://bmvc2022.org/">BMVC 2022</a>)</div>
@@ -804,7 +798,7 @@
 
 
     <!--mTVR-->
-    <div class="row my-3 paper-item" data-tags="federated">
+    <div class="row my-3 paper-item" data-tags="training">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:160px!important;" src="images/HFL.png" alt="mTVR">
@@ -813,7 +807,7 @@
       <div class="col-lg-9">
         <div class="paper-text">
           <div class="paper-title">
-            <span class="paper-tag tag-federated">Federated</span>
+            <span class="paper-tag tag-training">Training</span>
             SphereFed: Hyperspherical Federated Learning
           </div>
           <div class="paper-conference">European Conference on Computer Vision (<a href="https://eccv2022.ecva.net/">ECCV 2022</a>)</div>
@@ -830,7 +824,7 @@
     
 
     <!--mTVR-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:250px!important;" src="images/ARVR_system.png" alt="mTVR">
@@ -855,7 +849,7 @@
 
 
     <!--VL-T5-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/bn_ood.png" alt="VL-T5">
@@ -879,7 +873,7 @@
 
 
     <!--VL-T5-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/dress.png" alt="VL-T5">
@@ -902,7 +896,7 @@
     </div>
 
     <!--ClipBERT-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/term_quant.png" alt="VL-T5">
@@ -932,7 +926,7 @@
 
 
     <!--ClipBERT-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:150px!important;" src="images/snn_freelunch.png" alt="VL-T5">
@@ -1063,7 +1057,7 @@
 
 
     <!--VLEP-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/exbert.png" alt="VLEP">
@@ -1090,7 +1084,7 @@
     </div>
 
     <!--TVR-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/ebs.png" alt="TVR">
@@ -1114,7 +1108,7 @@
 
 
     <!--TVR-->
-    <div class="row my-3">
+    <div class="row my-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/nas_binary.png" alt="TVR">
@@ -1141,7 +1135,7 @@
 
 
     <!--TVQA-->
-    <div class="row mb-3">
+    <div class="row mb-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/main_sub_binary.png" alt="TVQA">
@@ -1178,7 +1172,7 @@
 
     
         <!--TVQA-->
-    <div class="row mb-3">
+    <div class="row mb-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/BENN.png" alt="benn">
@@ -1212,7 +1206,7 @@
 
 
     <!--CRV classification-->
-    <div class="row mb-3">
+    <div class="row mb-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/full_stack.png" alt="image classification">
@@ -1242,7 +1236,7 @@
 
 
 <!--CRV classification-->
-    <div class="row mb-3">
+    <div class="row mb-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/maestro.png" alt="image classification">
@@ -1274,7 +1268,7 @@
 
 
 <!--CRV classification-->
-    <div class="row mb-3">
+    <div class="row mb-3 paper-item">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
           <img class="paper-img" src="images/lobs.png" alt="image classification">
@@ -1577,8 +1571,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateFilterFeedback() {
-        const visiblePapers = document.querySelectorAll('.paper-item:not(.hidden)').length;
         const filterTitle = document.querySelector('.tag-filter-title');
+        let visiblePapers = 0;
+        
+        // Calculate count based on filtering logic, not CSS classes
+        paperItems.forEach(paper => {
+            if (activeTags.size === 0) {
+                // Show all papers
+                visiblePapers++;
+            } else {
+                // Check if paper has any of the selected tags
+                const paperTags = paper.getAttribute('data-tags');
+                if (paperTags) {
+                    const paperTagArray = paperTags.split(',').map(tag => tag.trim());
+                    const hasMatchingTag = Array.from(activeTags).some(activeTag => 
+                        paperTagArray.includes(activeTag)
+                    );
+                    if (hasMatchingTag) {
+                        visiblePapers++;
+                    }
+                }
+                // Papers without data-tags are not counted when specific tags are selected
+            }
+        });
         
         if (activeTags.size === 0) {
             filterTitle.textContent = 'Filter Papers by Topic';
@@ -1604,16 +1619,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatTagName(tag) {
         const tagName = tag.charAt(0).toUpperCase() + tag.slice(1);
         const formattedNames = {
-            'Cv': 'CV',
+            'Cv': 'Vision',
             'Llm': 'LLM',
-            'Federated': 'Federated',
             'Quantization': 'Quantization',
             'Architecture': 'Architecture',
             'Reasoning': 'Reasoning',
             'Dataset': 'Dataset',
             'Agents': 'Agents',
             'Efficiency': 'Efficiency',
-            'Security': 'Security',
+            'Release': 'Release',
+            'Context': 'Context',
             'Training': 'Training'
         };
         return formattedNames[tagName] || tagName;
