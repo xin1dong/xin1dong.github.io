@@ -301,8 +301,6 @@ img.me {
     font-size: 14px;
     line-height: 1.6;
     color: #666;
-    max-height: 180px;
-    overflow-y: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     transition: all 0.2s ease;
 }
