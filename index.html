@@ -382,6 +382,43 @@
     <div class="row my-3 paper-item" data-tags="llm,architecture">
       <div class="col-lg-3">
         <div class="paper-img-wrapper">
+          <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/tidar.png" alt="gpt-pruning">
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="paper-text">
+          <div class="paper-title">
+            <span class="paper-tag tag-llm">LLM</span>
+            <span class="paper-tag tag-architecture">Architecture</span>
+            TiDAR: Think in Diffusion, Talk in Autoregression
+          </div>
+          <!-- <div class="paper-conference">International Conference on Learning Representations (<a href="https://iclr.cc/">ICLR 2025 Spotlight</a>)</div> -->
+          <div class="paper-authors">
+            Jingyu Liu*, <b>Xin Dong*<sup>†</sup></b>, Zhifan Ye, Rishabh Mehta, Yonggan Fu, Vartika Singh, Jan Kautz, Ce Zhang, Pavlo Molchanov
+          </div>
+          <div class="paper-authors"><b>*: Equal Contribution, <sup>†</sup>: Project Lead </b></div>
+          <div>
+            <a target="_blank" href="https://arxiv.org/pdf/2511.08923">[PDF]</a>
+            <!-- <a target="_blank" href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">[HF]</a>
+            <a target="_blank" href="https://github.com/NVlabs/hymba">[Code]</a> -->
+          </div>
+        </div>
+        <div class="paper-additional-text">
+          <ul>
+            <li>TiDAR is a new sequence-level hybrid architecture that drafts tokens (Thinking) in Diffusion and samples final outputs (Talking) AutoRegressively - all within a single forward pass using specially designed structured attention masks.</li>
+            <li>TiDAR exploits the free GPU compute density and is the first architecture to close the quality gap with AR models while delivering 4.71× to 5.91× more tokens per second.</li>
+            <!-- <li><a target="_blank" href="https://falcon-lm.github.io/blog/falcon-h1/">Falcon-H1</a> (up to 34B params on 18T tokens) from UAE adopted the parallel architecture as Hymba with impressive performance.</li> -->
+            <!-- <li><a target="_blank" href="https://x.com/JG_Barthelemy/status/1978470568367444146">Dragon</a> (3B params on 3.5T tokens and bigger models coming) from DragonLLM and EuroHPC validates superior performance and long-context potentials (long documents, files, codes or contracts).</li> -->
+            <!-- <li><a target="_blank" href="https://arxiv.org/pdf/2509.25073">NaPE</a>, a head-wise hybridization of positional embedding (PE), from NVIDIA demonstrates the best long state tracing and length generalization out of ten common PE variants.</li> -->
+          </ul>
+        </div>
+      </div>
+    </div> 
+
+
+    <div class="row my-3 paper-item" data-tags="llm,architecture">
+      <div class="col-lg-3">
+        <div class="paper-img-wrapper">
           <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/hymba_mem.png" alt="gpt-pruning">
         </div>
       </div>
@@ -396,6 +433,7 @@
           <div class="paper-authors">
             <b>Xin Dong*</b>, Fonggan Fu*, Shizhe Diao, Wonmin Byeon, Zijia Chen, Ameya Sunil Mahabaleshwarkar, Shih-Yang Liu, Matthijs Van Keirsbilck, Min-Hung Chen, Yoshi Suhara, Yingyan (Celine) Lin, Jan Kautz, Pavlo Molchanov
           </div>
+          <div class="paper-authors"><b>*: Equal Contribution</b></div>
           <div>
             <a target="_blank" href="https://arxiv.org/pdf/2411.13676">[PDF]</a>
             <a target="_blank" href="https://huggingface.co/collections/nvidia/hymba-673c35516c12c4b98b5e845f">[HF]</a>
@@ -412,8 +450,7 @@
           </ul>
         </div>
       </div>
-    </div> 
-
+    </div>     
 
     <div class="row my-3 paper-item" data-tags="llm,reasoning">
       <div class="col-lg-3">
@@ -432,7 +469,7 @@
           <div class="paper-authors">
             Shih-Yang Liu, <b>Xin Dong<sup>†</sup></b>, Ximing Lu, Shizhe Diao, Mingjie Liu, Min-Hung Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov
           </div>
-          <div class="paper-authors">†: Project Lead</div>
+          <div class="paper-authors"><b>†: Project Lead</b></div>
           <div>
             <a target="_blank" href="https://arxiv.org/pdf/2510.15110">[PDF]</a>
             <a target="_blank" href="https://huggingface.co/collections/nvidia/reasoning-efficiency-research-68a8ea0ffe21f3fc46e1da0f">[HF]</a>
