@@ -469,7 +469,7 @@
               <li>Autoregressive or Diffusion language models, but why choose? TiDAR allows you have the best of both
                 worlds in one model and one forward pass with zero overhead by leveraging the unused compute to memory
                 density on GPUs.</li>
-              <li>TiDAR is fundamentally superior to both Multi-Token Prediction (DeepSeekV3-style) and Speculative
+              <li>TiDAR is fundamentally superior to both Multi-Token Prediction (DeepSeek-V3-style) and Speculative
                 Decoding.</li>
               <!-- <li><a target="_blank" href="https://falcon-lm.github.io/blog/falcon-h1/">Falcon-H1</a> (up to 34B params on 18T tokens) from UAE adopted the parallel architecture as Hymba with impressive performance.</li> -->
               <!-- <li><a target="_blank" href="https://x.com/JG_Barthelemy/status/1978470568367444146">Dragon</a> (3B params on 3.5T tokens and bigger models coming) from DragonLLM and EuroHPC validates superior performance and long-context potentials (long documents, files, codes or contracts).</li> -->
@@ -558,8 +558,47 @@
           </div>
           <div class="paper-additional-text">
             <ul>
-              <li>DLER reduces the CoT length of reasoning models (e.g., DeepSeek-R1) by >70% while maintaining the same
+              <li>DLER <b>reduces the CoT length of reasoning models (e.g., DeepSeek-R1) by >70%</b> while maintaining the same
                 or higher accuracy with standard and pure RL.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-3 paper-item" data-tags="llm,agents">
+        <div class="col-lg-3">
+          <div class="paper-img-wrapper">
+            <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/orchestrator.png"
+              alt="gpt-pruning">
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="paper-text">
+            <div class="paper-title">
+              <span class="paper-tag tag-llm">LLM</span>
+              <span class="paper-tag tag-agents">Agents</span>
+              ToolOrchestra: Elevating Intelligence via Efficient Model and Tool Orchestration
+            </div>
+            <!-- <div class="paper-conference">Neural Information Processing Systems (<a href="https://neurips.cc/">NeurIPS -->
+                <!-- 2025 Spotlight</a>) (2.8%, dataset track)</div> -->
+            <div class="paper-authors">
+              Hongjin Su, Shizhe Diao, Ximing Lu, Mingjie Liu, Jiacheng Xu, <b>Xin Dong</b>, Yonggan Fu, Peter Belcak, Hanrong Ye, Hongxu Yin, Yi Dong, Evelina Bakhturina, Tao Yu, Yejin Choi, Jan Kautz, Pavlo Molchanov
+            </div>
+
+            <div>
+              <a target="_blank" href="https://arxiv.org/pdf/2511.21689">[PDF]</a>
+              <a target="_blank"
+                href="https://huggingface.co/nvidia/Orchestrator-8B">[HF]</a>
+                <a target="_blank"
+                href="https://huggingface.co/datasets/nvidia/ToolScale">[Dataset]</a>      
+              <a target="_blank" href="https://github.com/NVlabs/ToolOrchestra/">[Code]</a>          
+            </div>
+          </div>
+          <div class="paper-additional-text">
+            <ul>
+              <li>On one of the hardest benchmark, Human Last Exam, ToolOrchestra beats GPT-5 while being 2.5x more efficient.  </li>
+              <li>ToolOrchestra demonstrates that a small model can manage context and decide which stronger models or tools to call.
+              </li>
             </ul>
           </div>
         </div>
@@ -600,7 +639,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div>      
 
       <div class="row my-3 paper-item" data-tags="llm,reasoning">
         <div class="col-lg-3">
@@ -633,6 +672,46 @@
                 new record for open-source RL training. Check out <a target="_blank"
                   href="https://www.notion.so/ProRL-V2-Prolonged-Training-Validates-RL-Scaling-Laws-24cd9a33ecc98069816afb778b472cf5">ProRL-V2</a>.
               </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row my-3 paper-item" data-tags="llm,release,architecture">
+        <div class="col-lg-3">
+          <div class="paper-img-wrapper">
+            <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/nemotron_flash.png"
+              alt="gpt-pruning">
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="paper-text">
+            <div class="paper-title">
+              <span class="paper-tag tag-llm">LLM</span>
+              <span class="paper-tag tag-release">Release</span>
+              <span class="paper-tag tag-architecture">Architecture</span>
+              Nemotron-Flash: Towards Latency-Optimal Hybrid Small Language Models
+            </div>
+            <div class="paper-conference">Neural Information Processing Systems (<a href="https://neurips.cc/">NeurIPS
+              2025</a>)</div>
+            <div class="paper-authors">
+              Fonggan Fu*, <b>Xin Dong*</b>, Shizhe Diao, Matthijs Van keirsbilck, Hanrong Ye, Wonmin Byeon,
+              Yashaswi Karnati, Lucas Liebenwein, Hannah Zhang, Nikolaus Binder, Maksim Khadkevich,
+              Alexander Keller, Jan Kautz, Yingyan (Celine) Lin, Pavlo Molchanov
+            </div>
+            <div class="paper-authors"><b>*: Equal Contribution</b></div>
+            <div>
+              <a target="_blank"
+                href="https://arxiv.org/pdf/2511.18890">[PDF]</a>
+              <a target="_blank"
+                href="https://huggingface.co/nvidia/Nemotron-Flash-3B-Instruct">[HF]</a>
+            </div>
+          </div>
+          <div class="paper-additional-text">
+            <ul>
+              <li>We study that how to determine layer type and width-depth if you care about accuracy and latency.</li>
+              <li>The classic weight normalization is surprisingly good for LLMs optimization.</li>
             </ul>
           </div>
         </div>
