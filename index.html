@@ -454,7 +454,7 @@
               TiDAR: Think in Diffusion, Talk in Autoregression
             </div>
             <div class="paper-conference">Conference on Machine Learning and Systems (<a href="https://mlsys.org/">MLSys
-                2026</a> Oral)</div>
+                2026 Oral</a>)</div>
             <div class="paper-authors">
               Jingyu Liu*, <b>Xin Dong*<sup>†</sup></b>, Zhifan Ye, Rishabh Mehta, Yonggan Fu, Vartika Singh, Jan Kautz,
               Ce Zhang, Pavlo Molchanov
@@ -469,9 +469,8 @@
           </div>
           <div class="paper-additional-text">
             <ul>
-              <li>Autoregressive or Diffusion language models, but why choose? TiDAR allows you have the best of both
-                worlds in one model and one forward pass with zero overhead by leveraging the unused compute to memory
-                density on GPUs.</li>
+              <li><a target="_blank" href="https://arxiv.org/pdf/2602.06036">DFlash</a> from NVIDIA team leverages the idea of diffusion-based drafting and reduces the cost of drafting, achieving a state-of-the-art on speculative decoding.</li>
+              <li><a target="_blank" href="https://github.com/deepseek-ai/DeepSpec/blob/main/DSpark_paper.pdf">DSpark</a> from DeepSeek team extends the diffusion-based drafting with a lightweight sequential module and a confidence-scheduled verification strategy, shifting the Pareto frontier of LLM serving system. </li>
             </ul>
           </div>
         </div>
@@ -510,17 +509,19 @@
           <div class="paper-additional-text">
             <ul>
               <li><b>Hymba is the first head-wise parallel hybrid architecture for LLM.</b></li>
-              <li>A <a target="_blank" href="https://arxiv.org/pdf/2510.04800v1">study</a> from FAIR at Meta confirms
+              <li>A <a target="_blank" href="https://arxiv.org/pdf/2510.04800v1">study</a> from FAIR team at Meta confirms
                 that intra-layer (head-wise parallel) fusion achieves a better throughput/accuracy Pareto frontier than
                 inter-layer (layer-wise parallel) fusion.</li>
               <li><a target="_blank" href="https://falcon-lm.github.io/blog/falcon-h1/">Falcon-H1</a> (up to 34B params
-                on 18T tokens) from UAE adopted the parallel architecture as Hymba with impressive performance.</li>
+                on 18T tokens) from UAE team adopted the parallel architecture with impressive performance.</li>
               <li><a target="_blank" href="https://x.com/JG_Barthelemy/status/1978470568367444146">Dragon</a> (3B params
                 on 3.5T tokens and bigger models coming) from DragonLLM and EuroHPC validates superior performance and
                 long-context potentials (long documents, files, codes or contracts).</li>
               <li><a target="_blank" href="https://arxiv.org/pdf/2509.25073">NaPE</a>, a head-wise hybridization of
-                positional embedding (PE), from NVIDIA demonstrates the best long state tracing and length
+                positional embedding (PE), from NVIDIA team demonstrates the best long state tracing and length
                 generalization out of ten common PE variants.</li>
+              <li><a target="_blank" href="https://arxiv.org/pdf/2606.20097">HydraHead</a> from Qwen team hybridizes full and linear attention along the head axis with
+                an interpretability-driven selection strategy and a scale-normalized fusion module.</li>
             </ul>
           </div>
         </div>
