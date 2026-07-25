@@ -235,7 +235,7 @@
               <p><b>Email</b>: xindong [at] alumni.harvard.edu </p>
 
               <p style="color:rgba(235, 29, 63, 0.999)">I am hiring full-time and intern researchers and
-                engineers. Drop an email if interested.
+                engineers at <a href="https://seed.bytedance.com/">Seed</a>. Drop an email if interested.
               </p>
             </td>
           </tr>
@@ -469,8 +469,13 @@
           </div>
           <div class="paper-additional-text">
             <ul>
-              <li><a target="_blank" href="https://arxiv.org/pdf/2602.06036">DFlash</a> from NVIDIA team leverages the idea of diffusion-based drafting and reduces the cost of drafting, achieving a state-of-the-art on speculative decoding.</li>
-              <li><a target="_blank" href="https://github.com/deepseek-ai/DeepSpec/blob/main/DSpark_paper.pdf">DSpark</a> from DeepSeek team extends the diffusion-based drafting with a lightweight sequential module and a confidence-scheduled verification strategy, shifting the Pareto frontier of LLM serving system. </li>
+              <li><a target="_blank" href="https://arxiv.org/pdf/2602.06036">DFlash</a> from NVIDIA team leverages the
+                idea of diffusion-based drafting and reduces the cost of drafting, achieving a state-of-the-art on
+                speculative decoding.</li>
+              <li><a target="_blank"
+                  href="https://github.com/deepseek-ai/DeepSpec/blob/main/DSpark_paper.pdf">DSpark</a> from DeepSeek
+                team extends the diffusion-based drafting with a lightweight sequential module and a
+                confidence-scheduled verification strategy, shifting the Pareto frontier of LLM serving system. </li>
             </ul>
           </div>
         </div>
@@ -509,7 +514,8 @@
           <div class="paper-additional-text">
             <ul>
               <li><b>Hymba is the first head-wise parallel hybrid architecture for LLM.</b></li>
-              <li>A <a target="_blank" href="https://arxiv.org/pdf/2510.04800v1">study</a> from FAIR team at Meta confirms
+              <li>A <a target="_blank" href="https://arxiv.org/pdf/2510.04800v1">study</a> from FAIR team at Meta
+                confirms
                 that intra-layer (head-wise parallel) fusion achieves a better throughput/accuracy Pareto frontier than
                 inter-layer (layer-wise parallel) fusion.</li>
               <li><a target="_blank" href="https://falcon-lm.github.io/blog/falcon-h1/">Falcon-H1</a> (up to 34B params
@@ -520,12 +526,46 @@
               <li><a target="_blank" href="https://arxiv.org/pdf/2509.25073">NaPE</a>, a head-wise hybridization of
                 positional embedding (PE), from NVIDIA team demonstrates the best long state tracing and length
                 generalization out of ten common PE variants.</li>
-              <li><a target="_blank" href="https://arxiv.org/pdf/2606.20097">HydraHead</a> from Qwen team hybridizes full and linear attention along the head axis with
+              <li><a target="_blank" href="https://arxiv.org/pdf/2606.20097">HydraHead</a> from Qwen team hybridizes
+                full and linear attention along the head axis with
                 an interpretability-driven selection strategy and a scale-normalized fusion module.</li>
             </ul>
           </div>
         </div>
       </div>
+
+      <div class="row my-3 paper-item" data-tags="llm,architecture">
+        <div class="col-lg-3">
+          <div class="paper-img-wrapper">
+            <img class="paper-img" style="max-height:130px!important;max-width:195px!important;" src="images/sparda.png"
+              alt="sparda">
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="paper-text">
+            <div class="paper-title">
+              <span class="paper-tag tag-llm">LLM</span>
+              <span class="paper-tag tag-architecture">Architecture</span>
+              SparDA: Sparse Decoupled Attention for Efficient Long-Context LLM Inference
+            </div>
+            <!-- <div class="paper-conference">International Conference on Learning Representations (<a
+                href="https://iclr.cc/">ICLR 2025 Spotlight</a>)</div> -->
+            <div class="paper-authors">
+              Yaosheng Fu, Guangxuan Xiao, <b>Xin Dong</b>, Song Han, Oreste Villa
+            </div>
+            <div>
+              <a target="_blank" href="https://arxiv.org/abs/2606.04511">[PDF]</a>
+              <a target="_blank" href="https://github.com/NVlabs/SparDA">[Code]</a>
+            </div>
+          </div>
+          <!-- <div class="paper-additional-text">
+            <ul>
+              <li><b>Hymba is the first head-wise parallel hybrid architecture for LLM.</b></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+
 
       <div class="row my-3 paper-item" data-tags="llm,reasoning">
         <div class="col-lg-3">
@@ -541,7 +581,8 @@
               <span class="paper-tag tag-reasoning">Reasoning</span>
               GDPO: Group Reward-Decoupled Normalization Policy Optimization for Multi-reward RL Optimization
             </div>
-            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML 2026</a>)</div>
+            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML
+                2026</a>)</div>
             <div class="paper-authors">
               Shih-Yang Liu, <b>Xin Dong<sup>†</sup></b>, Ximing Lu, Shizhe Diao, Peter Belcak, Mingjie Liu, Min-Hung
               Chen, Hongxu Yin, Yu-Chiang Frank Wang, Kwang-Ting Cheng, Yejin Choi, Jan Kautz, Pavlo Molchanov
@@ -555,9 +596,18 @@
           </div>
           <div class="paper-additional-text">
             <ul>
-              <li>GDPO got into <a target="_blank" href="https://x.com/SergioPaniego/status/2012205711057363183">TRL</a>, <a target="_blank" href="https://github.com/verl-project/verl/tree/8a694930275061f52ebd538c906ef8819af56dbd/examples/gdpo_trainer">Verl</a>, and <a target="_blank" href="https://github.com/NVIDIA-NeMo/RL/blob/bab69c2d5da07ac4d0169dbb12e197d2ccecf7ee/examples/configs/gdpo_math_1B.yaml#L2">NeMo-RL</a> officially.</li>
-              <li> Meituan team made a further step via magnitude-aware quantile normalization and Mahalanobis whitening to address the reward conflict issue in <a target="_blank" href="https://arxiv.org/pdf/2605.13641">RDPO</a>.</li>
-              <li> Qwen team made a further step by a conflict-aware filtering mechanism to mask out rollouts suffering from reward conflicts and proposed <a target="_blank" href="https://arxiv.org/pdf/2606.16771">GD^2PO</a>. </li>
+              <li>GDPO got into <a target="_blank"
+                  href="https://x.com/SergioPaniego/status/2012205711057363183">TRL</a>, <a target="_blank"
+                  href="https://github.com/verl-project/verl/tree/8a694930275061f52ebd538c906ef8819af56dbd/examples/gdpo_trainer">Verl</a>,
+                and <a target="_blank"
+                  href="https://github.com/NVIDIA-NeMo/RL/blob/bab69c2d5da07ac4d0169dbb12e197d2ccecf7ee/examples/configs/gdpo_math_1B.yaml#L2">NeMo-RL</a>
+                officially.</li>
+              <li> Meituan team made a further step via magnitude-aware quantile normalization and Mahalanobis whitening
+                to address the reward conflict issue in <a target="_blank"
+                  href="https://arxiv.org/pdf/2605.13641">RDPO</a>.</li>
+              <li> Qwen team made a further step by a conflict-aware filtering mechanism to mask out rollouts suffering
+                from reward conflicts and proposed <a target="_blank"
+                  href="https://arxiv.org/pdf/2606.16771">GD^2PO</a>. </li>
             </ul>
           </div>
         </div>
@@ -616,7 +666,8 @@
               <span class="paper-tag tag-agents">Agents</span>
               ToolOrchestra: Elevating Intelligence via Efficient Model and Tool Orchestration
             </div>
-            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML 2026</a>)</div>
+            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML
+                2026</a>)</div>
             <div class="paper-authors">
               Hongjin Su, Shizhe Diao, Ximing Lu, Mingjie Liu, Jiacheng Xu, <b>Xin Dong</b>, Yonggan Fu, Peter Belcak,
               Hanrong Ye, Hongxu Yin, Yi Dong, Evelina Bakhturina, Tao Yu, Yejin Choi, Jan Kautz, Pavlo Molchanov
@@ -840,7 +891,8 @@
               <span class="paper-tag tag-architecture">Architecture</span>
               Efficient-DLM: From Autoregressive to Diffusion Language Models, and Beyond in Speed
             </div>
-            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML 2026</a>)</div>
+            <div class="paper-conference">International Conference on Machine Learning (<a href="https://icml.cc/">ICML
+                2026</a>)</div>
             <div class="paper-authors">
               Fonggan Fu*, Lexington Whalen*, Zhifan Ye, <b>Xin Dong</b>, Shizhe Diao, Jingyu Liu, Chengyue Wu, Hao
               Zhang, Enze Xie, Song Han, Maksim Khadkevich, Jan Kautz, Yingyan (Celine) Lin, Pavlo Molchanov
